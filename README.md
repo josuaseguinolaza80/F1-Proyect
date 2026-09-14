@@ -16,7 +16,7 @@ Automatización: Amazon EventBridge ejecuta la función Lambda de forma periódi
 
 Alertas: Lógica interna en Lambda calcula la degradación térmica del motor y envía alertas vía Amazon SNS al detectar riesgo de fallo mecánico.
 
-Plaintext
+
 [EventBridge] 
      │
      ▼
@@ -51,7 +51,7 @@ Transición a S3 Glacier Flexible Retrieval a los 90 días.
 
 Estructura de objetos en S3:
 
-Plaintext
+
 telemetria/
   └── year=2026/
       └── month=03/
