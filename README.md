@@ -2,8 +2,6 @@ Pipeline de Ingesta y Procesamiento de Telemetría F1 en AWS
 
 Proyecto de arquitectura serverless en AWS diseñado para ingerir, almacenar y analizar datos de telemetría en tiempo real. La solución implementa un flujo de datos desacoplado, optimizado para costes y con mantenimiento predictivo para la salud del motor.
 
-Arquitectura
-
 El flujo de datos sigue un modelo serverless organizado en las siguientes etapas:
 
 Ingesta y Simulación: AWS Lambda genera registros de telemetría (velocidad, RPM, presión de freno, temperatura de motor) estructurados por piloto.
