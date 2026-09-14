@@ -17,22 +17,9 @@ Automatización: Amazon EventBridge ejecuta la función Lambda de forma periódi
 Alertas: Lógica interna en Lambda calcula la degradación térmica del motor y envía alertas vía Amazon SNS al detectar riesgo de fallo mecánico.
 
 
-[EventBridge] 
-     │
-     ▼
-[AWS Lambda] ───(Publica alerta)───> [Amazon SNS] ───> [Email / Notificación]
-     │
-     ▼
-[Amazon S3 (Data Lake)]
-     │
-     ▼
-[AWS Glue Crawler]
-     │
-     ▼
-[Glue Data Catalog]
-     │
-     ▼
-[Amazon Athena] ───> [Análisis / Exportación CSV]
+[EventBridge] -> [AWS Lambda] ─(Publica alerta) ─> [Amazon SNS] ─> [Email / Notificación]
+     
+[Amazon S3 (Recibe los datos de Lambda)] -> [AWS Glue Crawler] -> [Glue Data Catalog] -> [Amazon Athena] ─> [Análisis / Exportación CSV]
 
 
 Componentes y Configuración
