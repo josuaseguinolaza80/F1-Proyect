@@ -1,3 +1,6 @@
+📄 **[Ver Memoria Completa del Proyecto en PDF](./F1_Proyecto_AWS.pdf)**
+
+
 Pipeline de Ingesta y Procesamiento de Telemetría F1 en AWS
 
 Proyecto de arquitectura serverless en AWS diseñado para ingerir, almacenar y analizar datos de telemetría en tiempo real. La solución implementa un flujo de datos desacoplado, optimizado para costes y con mantenimiento predictivo para la salud del motor.
