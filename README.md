@@ -1,5 +1,4 @@
-[Descargar o Ver la Memoria Completa del Proyecto (PDF)](TU_ENLACE_DE_GOOGLE_DRIVE_AQUI)
-
+[Ver Memoria Completa del Proyecto (PDF)](./F1%20PROYECTO.pdf)
 
 Pipeline de Ingesta y Procesamiento de Telemetría F1 en AWS
 
