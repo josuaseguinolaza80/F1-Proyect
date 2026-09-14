@@ -33,8 +33,13 @@ Plaintext
      │
      ▼
 [Amazon Athena] ───> [Análisis / Exportación CSV]
+
+
 Componentes y Configuración
+
+
 1. Amazon S3
+   
 Bucket principal: f1-telemetria-almacenamiento
 Versionado activado para prevenir borrados accidentales.
 
@@ -57,7 +62,10 @@ telemetria/
               │   └── Verstappen_173443.json
               └── piloto=Antonelli/
                   └── Antonelli_173443.json
+                  
+
 2. IAM y Seguridad
+   
 Se aplica el principio de mínimo privilegio asignando permisos específicos para:
 
 Escritura de logs en CloudWatch (AWSLambdaBasicExecutionRole).
@@ -68,8 +76,10 @@ Permiso de publicación sobre el Topic de SNS.
 
 (Nota: En el entorno de pruebas de AWS Academy / Learning Lab, el despliegue se ajustó al rol LabRole debido a restricciones del laboratorio).
 
+
 3. Código de Ingesta (AWS Lambda)
-Funcionamiento en Python (boto3):
+
+Funcionamiento en Python:
 
 ```python
 import json
@@ -158,6 +168,7 @@ def lambda_handler(event, context):
 ```
     
 4. Consultas en Amazon Athena
+   
 Ejemplo de consulta SQL para extraer métricas de rendimiento por sector:
 
 SQL
@@ -171,14 +182,18 @@ FROM "f1_db"."telemetria"
 WHERE gp = 'Espana'
 ORDER BY segundo_vuelta ASC;
 
+
 5. Decisiones Técnicas y Limitaciones
+   
 Sustitución de API externa por generación interna: Debido a que el entorno de laboratorio no disponía de una NAT Gateway para dar salida a Internet a la subred (restringido por presupuesto), se integró la lógica de generación de telemetría dentro de la propia Lambda en lugar de consumir la API pública de Ergast.
 
 Optimización de costes: Toda la infraestructura corre sobre servicios 100% serverless bajo demanda, manteniendo el coste total del proyecto por debajo de 0.20 €.
 
 Particionado en S3: Organizar los datos mediante el esquema de carpetas Hive permite a Athena escanear únicamente los archivos de la partición consultada, reduciendo drásticamente el tiempo de respuesta y el coste por terabyte escaneado.
 
+
 6. Posibles Mejoras
+   
 Infraestructura como Código: Migrar el aprovisionamiento manual de la consola a plantillas reutilizables en Terraform.
 
 Gestión de Secretos: Integrar AWS Secrets Manager para evitar incluir identificadores o ARNs estáticos en el código de la función.
